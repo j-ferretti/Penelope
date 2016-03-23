@@ -1162,6 +1162,7 @@ private: System::Void backgroundWorker1_DoWork(Object^ sender, DoWorkEventArgs^ 
 							 e->Cancel=true;
 							 p=p1;
 							 return;
+
 						 }
 						 pd->PrintPage += gcnew PrintPageEventHandler( this, &Main_window::pd_PrintPage );
 						 pd->Print();
