@@ -1153,7 +1153,7 @@ private: System::Void backgroundWorker1_DoWork(Object^ sender, DoWorkEventArgs^ 
 				 }
 				 pd->DefaultPageSettings->Color = false;
 
-				 pd->PrinterSettings->PrinterName = "Microsoft XPS Document Writer";	//debug purpose only
+				 //pd->PrinterSettings->PrinterName = "Microsoft XPS Document Writer";	//debug purpose only
 
 				 for(p=0;p<=IC->n;p++){
 					 for(k=0;k<IC->im[p].rep;k++){
@@ -1169,11 +1169,9 @@ private: System::Void backgroundWorker1_DoWork(Object^ sender, DoWorkEventArgs^ 
 						 while(pc->ready==false && !worker->CancellationPending){
 							 //Sleep(100);
 							 DWORD Start_time = GetTickCount();
-							 MessageBox::Show(String::Concat(GetTickCount()));
 							 while (GetTickCount() < Start_time + 100){
 								 Void;
 							 }
-							 MessageBox::Show(String::Concat(GetTickCount()));
 						 }
 						 pc->ready=false;
 					 }
