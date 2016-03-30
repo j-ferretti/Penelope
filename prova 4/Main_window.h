@@ -1168,10 +1168,10 @@ private: System::Void backgroundWorker1_DoWork(Object^ sender, DoWorkEventArgs^ 
 						 pd->Print();
 						 while(pc->ready==false && !worker->CancellationPending){
 							 //Sleep(100);
-							 DWORD Start_time = GetTickCount();
-							 while (GetTickCount() < Start_time + 100){
+							 //DWORD Start_time = GetTickCount();
+							 //while (GetTickCount() < Start_time + 100){
 								 Void;
-							 }
+							 //}
 						 }
 						 pc->ready=false;
 					 }
@@ -1587,13 +1587,15 @@ private: System::Void pictureBox_Paint(System::Object^  sender, System::Windows:
 			 //Image^ imag = Image::FromFile(IC->im[p].name);
 			 if (imag == nullptr) imag = Image::FromFile(IC->im[p].name); //probabilmente non serve più, ma così è più robusto
 			 if (IC->im[p].ritaglia){
-				pictureBox->Image = pictureBox->BackgroundImage;
-				RectangleF dstrect = RectangleF(0, 0, pictureBox->Width, pictureBox->Height);
-				RectangleF srcrect = RectangleF(IC->im[p].x, IC->im[p].y, pictureBox->Width, pictureBox->Height);
-				GraphicsUnit units = GraphicsUnit::Pixel;
+				 pictureBox->Image = pictureBox->BackgroundImage;
+				 RectangleF dstrect = RectangleF(0, 0, pictureBox->Width, pictureBox->Height);
+				 RectangleF srcrect = RectangleF(IC->im[p].x, IC->im[p].y, pictureBox->Width, pictureBox->Height);
+				 GraphicsUnit units = GraphicsUnit::Pixel;
 
-				g->DrawImage(imag,dstrect,srcrect,units);
+				 g->DrawImage(imag, dstrect, srcrect, units);
 			 }
+			 else
+				 pictureBox->Image = imag;
 			 
 
 			 // Draw shapes over the image
